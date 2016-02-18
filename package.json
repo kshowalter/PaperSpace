@@ -1,0 +1,41 @@
+{
+  "name": "tabletop-ship-sim",
+  "version": "0.0.1",
+  "author": "K Showalter",
+  "dependencies": {
+    "express": "^4.6.1",
+    "lodash": "^3.6.0",
+    "ampersand-router": "latest",
+    "ampersand-state": "latest",
+    "redux": "latest",
+    "riot": "latest"
+  },
+  "devDependencies": {
+    "webpack": "~1.12.13",
+    "webpack-dev-server": "~1.14.1",
+    "babel-loader": "~6.2.3",
+    "babel-preset-es2015": "latest",
+    "babel-preset-react": "latest",
+    "babel-eslint": "latest",
+    "eslint": "latest",
+    "eslint-plugin-react": "latest",
+    "html-loader": "latest",
+    "markdown-loader": "latest",
+    "babel": "~6.5.2",
+    "riotjs-loader": "~1.2.0",
+    "riot": "~2.3.15"
+  },
+  "jshintConfig": {
+    "asi": false,
+    "browser": true,
+    "curly": false,
+    "expr": true,
+    "indent": 4,
+    "loopfunc": true,
+    "node": true,
+    "trailing": true,
+    "undef": true,
+    "white": true
+  },
+  "main": "server.js"
+}
