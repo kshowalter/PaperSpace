@@ -1,11 +1,38 @@
-console.log('app');
-var riot = require('riot');
-
-var router = require('./router');
-console.log('router', router);
+import riot from 'riot';
 
 
-require('./app.tag');
+import './app.tag';
+import initState from './initState';
+//console.log(initState);
+
+var actions = riot.observable();
+
+import { createStore, applyMiddleware, compose } from 'redux';
+import reducer from './redux/reducer.js';
+
+import * as actions from from './redux/actions';
+
+import configureStore from './redux/configureStore';
+
+import initState from './initState';
+//var initStateImmutable = Immutable.fromJS(initState);
+//let store = configureStore(initStateImmutable);
+
+var Freezer = require('freezer-js');
+var freezer = new Freezer(initState);
+
+let store = configureStore(initState);
+
+
+
+
+var n = 0;
+window.setInterval(function(){
+  //console.log(n);
+  actions.trigger('test', n);
+  n++;
+}, 1000);
+
 
 window.onload = function(){
   console.log('page loaded');
@@ -14,5 +41,12 @@ window.onload = function(){
   doc.className = 'app';
   document.body.appendChild(doc);
 
-  riot.mount('*');
+  riot.mount('app', {
+    initState: initState,
+    actions: actions
+  });
+  riot.route.start(true);
+  //riot.compile(function() {
+  //});
+
 };

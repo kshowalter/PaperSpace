@@ -49,3 +49,32 @@ h1, h2, h3, h4, h5, h6, th, td, caption { font-weight:normal; }
 .app {
   margin: 5px;
 }
+
+
+.topBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #88d1ff;
+  background: #083a47;
+  padding: 2px;
+  height: 30px;
+}
+
+.button{
+  position: relative;
+  top: 5px;
+  padding: 2px 5px;
+  margin: 2px;
+  background-color: #b7d8f4;
+  border: 1px solid #909090;
+  color: black;
+}
+
+.mainSection {
+  /*
+  */
+  margin-top: 30px;
+
+}
