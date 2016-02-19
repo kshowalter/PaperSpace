@@ -1,3 +1,6 @@
 node_modules/*
 
 *.map
+
+public/guide.js
+public/app.js
