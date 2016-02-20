@@ -1,53 +1,54 @@
 require('./templates/info-page.tag');
-var initState = require('./initState');
 
 <app>
 
-  <div class='topBar'>
+  <div class='topBar'/web>
     <a each={ state.pageNames } class='button' href="#{ title }">{ title }</a>
   </div>
 
   <div class ='mainSection'>
+    <h3>Page: {state.pageName}</h3>
 
+    <div show={ state.pageName==='info' }>
+      <info-page state={state} actions={opts.actions} dispatch={opts.store.dispatch}></info-page>
 
-  </div>
-  <h3>Page: {state.pageName}</h3>
+    </div>
 
+    <div show={ pageName === 'test' }>
+      this is only a test
 
-  <div if={ state.pageName==='info' }>
-    <info-page pageData={state.pageNames}></info-page>
-
-  </div>
-
-  <div if={ pageName==='test' }>
-    this is only a test
+    </div>
 
   </div>
-
 
 
   <script>
 
     var self = this;
 
-    var state = this.state = opts.initState;
+    var state = opts.initState;
+    var store = opts.store;
+    var actions = opts.actions;
+    var riotActions = opts.riotActions;
 
-    state.pageName = state.pageName || state.pageNames[0]
 
     riot.route(function() {
-      state.pageName = arguments[0];
+      //state.pageName = arguments[0];
+      store.dispatch( actions.selectPage(arguments[0]) );
+      //self.update();
+    });
+
+    riotActions.on('test', function(input){
+      console.log('test', input);
+    });
+
+    store.subscribe(function(){
+      self.state = opts.store.getState();
+      console.log(state);
       self.update();
     })
 
-    //app_input.on('test', function(input) {
-    //  console.log('test', input);
-    //});
 
-    //console.log(self);
-
-    opts.actions.on('test', function(input){
-      console.log('test', input);
-    });
 
   </script>
 

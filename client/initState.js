@@ -3,5 +3,6 @@ export default {
   pageNames: [
     {title: 'info'},
     {title: 'test'}
-  ]
+  ],
+  pageName: ''
 };

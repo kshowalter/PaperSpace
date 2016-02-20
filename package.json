@@ -8,7 +8,9 @@
     "ampersand-router": "latest",
     "ampersand-state": "latest",
     "redux": "latest",
-    "riot": "latest"
+    "freezer-js": "latest",
+    "redux-logger": "latest",
+    "redux-thunk": "latest"
   },
   "devDependencies": {
     "webpack": "~1.12.13",
@@ -23,9 +25,7 @@
     "markdown-loader": "latest",
     "babel": "~6.5.2",
     "riotjs-loader": "~1.2.0",
-    "riot": "~2.3.15",
-    "freezer-js": "latest",
-    "redux": "latest"
+    "riot": "~2.3.15"
   },
   "jshintConfig": {
     "asi": false,

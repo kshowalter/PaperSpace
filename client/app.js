@@ -1,37 +1,27 @@
 import riot from 'riot';
-
-
 import './app.tag';
-import initState from './initState';
-//console.log(initState);
+import './templates/info-page.tag';
+var riotActions = riot.observable();
 
-var actions = riot.observable();
+
+
 
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './redux/reducer.js';
 
-import * as actions from from './redux/actions';
-
-import configureStore from './redux/configureStore';
+import * as actions from './redux/actions';
 
 import initState from './initState';
-//var initStateImmutable = Immutable.fromJS(initState);
-//let store = configureStore(initStateImmutable);
+import configureStore from './redux/configureStore';
 
-var Freezer = require('freezer-js');
-var freezer = new Freezer(initState);
+//var Freezer = require('freezer-js');
+//var freezer = new Freezer(initState);
 
 let store = configureStore(initState);
 
+store.dispatch(actions.initialize());
 
 
-
-var n = 0;
-window.setInterval(function(){
-  //console.log(n);
-  actions.trigger('test', n);
-  n++;
-}, 1000);
 
 
 window.onload = function(){
@@ -43,10 +33,14 @@ window.onload = function(){
 
   riot.mount('app', {
     initState: initState,
-    actions: actions
+    store: store,
+    actions: actions,
+    riotActions: riotActions
   });
   riot.route.start(true);
   //riot.compile(function() {
   //});
+
+  store.dispatch( actions.step(3) );
 
 };
