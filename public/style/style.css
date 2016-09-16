@@ -31,6 +31,7 @@ table {
   border: 1px black solid;
   border-collapse: collapse;
   border-spacing: 0;
+  margin: 10px;
 }
 table, tr, td, th, tbody, thead{vertical-align:baseline}
 th, td {
@@ -43,8 +44,32 @@ th, td {
 /*
 http://stackoverflow.com/questions/4918018/eliminate-padding-margin-around-pics-in-td-elements
 Finally, I add this line, which removes that stupid spacing which appears all the time, the one that isn't padding, margin or anything.
-*/
 h1, h2, h3, h4, h5, h6, th, td, caption { font-weight:normal; }
+*/
+h1, h2, h3, h4, h5, h6, th, td, caption {
+  font-weight:normal;
+  margin-top: 15px;
+  margin-bottom: 3px;
+}
+
+ul {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 20px;
+};
+
+svg {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+
 
 .app {
   margin: 5px;
@@ -75,6 +100,7 @@ h1, h2, h3, h4, h5, h6, th, td, caption { font-weight:normal; }
 .mainSection {
   /*
   */
+  margin: 5px;
   margin-top: 30px;
 
 }

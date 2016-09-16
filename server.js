@@ -24,7 +24,11 @@ var server = http.createServer(app);
 // Listen on provided port, on all network interfaces.
 server.listen(port);
 
-//var db = require('./server/db')();
-//require('./server/io')(server, db);
+var db = require('./server/db')();
+//db('posts').push({ title: 'lowdb is awesome'});
+
+require('./server/io')(server, db);
+
+//require('./server/loadMarkdown')(db);
 
 console.log('server started on http://localhost:3210');

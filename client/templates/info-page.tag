@@ -8,7 +8,7 @@
     //console.log(opts);
     this.click = function click(e){
       console.log('click', e);
-      opts.dispatch( opts.actions.step() );
+      opts.actions.step();
     }
   </script>
 
